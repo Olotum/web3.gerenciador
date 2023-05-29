@@ -1,8 +1,8 @@
-.dsmeta-red-btn {
+.ws-btn {
     height: 45px;
     width: 45px;
-    background: rgba(255, 107, 114, 0.1);
-    border: 1px solid #FF6B72;
+    background: rgba(103, 111, 255, 0.1);
+    border: 1px solid #676FFF;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -10,6 +10,6 @@
     cursor: pointer;
 }
 
-.dsmeta-red-btn img {
+.ws-btn img {
     width: 19px; 
 }

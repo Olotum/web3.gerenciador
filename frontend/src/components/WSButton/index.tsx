@@ -7,9 +7,11 @@ import './styles.css';
 type Props = { vendaId: number }
 
 function handleClick(vendaId :number) {
-    
-        console.log("sucesso " + vendaId);
-    }
+    axios(`${BASE_URL}/vendas`)
+    .then(response => {
+        console.log("sucesso" + vendaId);
+    })
+} 
 
 function WSButton({vendaId} : Props) {
     return (

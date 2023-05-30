@@ -7,11 +7,9 @@ import './styles.css';
 type Props = { vendaId: number }
 
 function handleClick(vendaId :number) {
-    axios(`https://api.whatsapp.com/send?phone=5599999999999`)
-    .then(response => {
-        console.log("sucesso")
-    })
-} 
+    
+        console.log("sucesso " + vendaId);
+    }
 
 function WSButton({vendaId} : Props) {
     return (

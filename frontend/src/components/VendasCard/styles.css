@@ -130,6 +130,9 @@ button {
 .show576 {
     display: none;
 }
+.edbtn-container {
+    display: none;
+}
 
 .show992 {
     display: none;
@@ -137,6 +140,9 @@ button {
 
 @media (min-width: 576px) {
     .show576 {
+        display: table-cell;
+    }
+    .edbtn-container {
         display: table-cell;
     }
 

@@ -2,8 +2,9 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import WSButton from '../WSButton';
-import './styles.css'
-import { useState } from "react";
+import './styles.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 
@@ -13,26 +14,33 @@ function VendasCard() {
 
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
-    
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/vendas')
+            .then(response => {
+                console.log(response.data);
+            })
+
+    }, []);
 
     return (
         <div className="card">
             <div>
                 <div className="form-control-container">
                     <DatePicker
-    selected={maxDate}
-    onChange={(date: Date) => setMaxDate(date)}
-    className="form-control"
-    dateFormat="dd/MM/yyyy"
-/>
+                        selected={maxDate}
+                        onChange={(date: Date) => setMaxDate(date)}
+                        className="form-control"
+                        dateFormat="dd/MM/yyyy"
+                    />
                 </div>
                 <div className="form-control-container">
-                <DatePicker 
-    selected={minDate}
-    onChange={(date: Date) => setMinDate(date)}
-    className="form-control"
-    dateFormat="dd/MM/yyyy"
-/>
+                    <DatePicker
+                        selected={minDate}
+                        onChange={(date: Date) => setMinDate(date)}
+                        className="form-control"
+                        dateFormat="dd/MM/yyyy"
+                    />
                 </div>
             </div>
 
@@ -58,29 +66,12 @@ function VendasCard() {
                             <td>R$ 55300.00</td>
                             <td>
                                 <div className="wsbtn-container">
-                                   <WSButton/>
+                                    <WSButton />
                                 </div>
                             </td>
                             <td>
-                                <div className="edbtn-container" className="show576">
-                                    <WSButton/>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="show992">001</td>
-                            <td className="show576">08/07/2022</td>
-                            <td>Anakin</td>
-                            <td>Alberto</td>
-                            <td>R$ 55300.00</td>
-                            <td>
-                                <div className="wsbtn-container">
-                                   <WSButton/>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="edbtn-container" className="show576">
-                                    <WSButton/>
+                                <div className="edbtn-container">
+                                    <WSButton />
                                 </div>
                             </td>
                         </tr>
@@ -92,12 +83,29 @@ function VendasCard() {
                             <td>R$ 55300.00</td>
                             <td>
                                 <div className="wsbtn-container">
-                                   <WSButton/>
+                                    <WSButton />
                                 </div>
                             </td>
                             <td>
-                                <div className="edbtn-container" className="show576">
-                                    <WSButton/>
+                                <div className="edbtn-container">
+                                    <WSButton />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="show992">001</td>
+                            <td className="show576">08/07/2022</td>
+                            <td>Anakin</td>
+                            <td>Alberto</td>
+                            <td>R$ 55300.00</td>
+                            <td>
+                                <div className="wsbtn-container">
+                                    <WSButton />
+                                </div>
+                            </td>
+                            <td>
+                                <div className="edbtn-container">
+                                    <WSButton />
                                 </div>
                             </td>
                         </tr>

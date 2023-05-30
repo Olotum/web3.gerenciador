@@ -1,4 +1,5 @@
 package com.web3.gerenciador.config;
+
 import java.util.Arrays;
 
 import org.springframework.context.annotation.Bean;

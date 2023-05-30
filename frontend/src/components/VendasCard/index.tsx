@@ -1,6 +1,8 @@
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Venda } from "../../models/venda";
+import { BASE_URL } from "../../util/request"
 import WSButton from '../WSButton';
 import './styles.css';
 import { useEffect, useState } from "react";
@@ -15,10 +17,11 @@ function VendasCard() {
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
 
+    const [vendas, setVendas] = useState<Venda[]>([]);
     useEffect(() => {
-        axios.get('http://localhost:8080/vendas')
+        axios.get(`${BASE_URL}/vendas`)
             .then(response => {
-                console.log(response.data);
+                setVendas(response.data.content);
             })
 
     }, []);
@@ -58,57 +61,30 @@ function VendasCard() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td className="show992">001</td>
-                            <td className="show576">08/07/2022</td>
-                            <td>Anakin</td>
-                            <td>Alberto</td>
-                            <td>R$ 55300.00</td>
-                            <td>
-                                <div className="wsbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                            <td>
-                                <div className="edbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="show992">001</td>
-                            <td className="show576">08/07/2022</td>
-                            <td>Anakin</td>
-                            <td>Alberto</td>
-                            <td>R$ 55300.00</td>
-                            <td>
-                                <div className="wsbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                            <td>
-                                <div className="edbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="show992">001</td>
-                            <td className="show576">08/07/2022</td>
-                            <td>Anakin</td>
-                            <td>Alberto</td>
-                            <td>R$ 55300.00</td>
-                            <td>
-                                <div className="wsbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                            <td>
-                                <div className="edbtn-container">
-                                    <WSButton />
-                                </div>
-                            </td>
-                        </tr>
+                        {vendas.map(venda => {
+                            return (
+                                <tr key={venda.id}>
+                                    <td className="show992">{venda.id}</td>
+                                    <td className="show576">{new Date(venda.date).toLocaleDateString()}</td>
+                                    <td>{venda.vendedorId}</td>
+                                    <td>{venda.clientId}</td>
+                                    <td>R$ {venda.valor.toFixed(2)}</td>
+                                    <td>
+                                        <div className="wsbtn-container">
+                                            <WSButton />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="edbtn-container">
+                                            <WSButton />
+                                        </div>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+
+
+
                     </tbody>
 
                 </table>

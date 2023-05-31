@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web3.gerenciador.entities.Cliente;
-import com.web3.gerenciador.repositories.ClienteRepository;
 import com.web3.gerenciador.services.ClienteService;
 
 @RestController
@@ -27,13 +26,7 @@ public class ClienteController {
 		return service.findCliente(minCompras, maxCompras, pageable);
 	}
 	
-	@Autowired
-	private ClienteRepository clienteRepository;
-
-	public void calcularNumeroCompras(Cliente cliente) {
-	    Long numeroCompras = clienteRepository.countCompras(cliente);
-	    cliente.setNumero_compras(numeroCompras);
-	}
+	
 }
 
 

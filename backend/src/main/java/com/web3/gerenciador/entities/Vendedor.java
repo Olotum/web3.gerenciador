@@ -30,6 +30,14 @@ public class Vendedor {
 }
 
 
+	public Vendedor(String nome, Filial filial, Double total_vendido, Long telefone) {
+		this.nome = nome;
+		this.filial = filial;
+		this.total_vendido = total_vendido;
+		this.telefone = telefone;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

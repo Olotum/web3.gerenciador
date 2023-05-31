@@ -12,9 +12,9 @@ function ClienteCard() {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(50);
 
-  const [cliente, setCliente] = useState<Cliente[]>([]);
+  const [Cliente, setCliente] = useState<Cliente[]>([]);
   useEffect(() => {
-    axios.get(`${BASE_URL}/cliente?minCompras=${min}&maxCompras=${max}`)
+    axios.get(`${BASE_URL}/cliente`)
       .then(response => {
         setCliente(response.data.content)
       })
@@ -60,7 +60,7 @@ function ClienteCard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {cliente.map(cliente => {
+                        {Cliente.map(cliente => {
                             return (
                                 <tr key={cliente.id}>
                                     <td className="show992">{cliente.id}</td>

@@ -66,17 +66,17 @@ function VendasCard() {
                                 <tr key={venda.id}>
                                     <td className="show992">{venda.id}</td>
                                     <td className="show576">{new Date(venda.date).toLocaleDateString()}</td>
-                                    <td>{venda.vendedorId}</td>
-                                    <td>{venda.clientId}</td>
+                                    <td>{venda.cliente.id}</td>
+                                    <td>{venda.vendedor.id}</td>
                                     <td>R$ {venda.valor.toFixed(2)}</td>
                                     <td>
                                         <div className="wsbtn-container">
-                                            <WSButton Id={venda.id} />
+                                            <WSButton Telefone={venda.id} />
                                         </div>
                                     </td>
                                     <td>
                                         <div className="edbtn-container">
-                                            <WSButton Id={venda.id}/>
+                                            <WSButton Telefone={venda.id}/>
                                         </div>
                                     </td>
                                 </tr>

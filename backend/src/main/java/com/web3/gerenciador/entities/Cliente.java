@@ -1,15 +1,13 @@
 package com.web3.gerenciador.entities;
 
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import com.web3.gerenciador.repositories.ClienteRepository;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -21,13 +19,9 @@ public class Cliente {
     private Long numero_compras;
     private Double valor_total;
     private Long telefone;
-    
-    @OneToMany(mappedBy = "cliente")
-    private List<Venda> vendas;
         
     
-    public Cliente(ClienteRepository clienteRepository) {
-        calcularNumeroCompras(clienteRepository);
+    public Cliente() {
     }
     
     public Long getId() {
@@ -70,17 +64,5 @@ public class Cliente {
         this.telefone = telefone;
     }
     
-    public List<Venda> getVendas() {
-        return vendas;
-    }
-    
-    public void setVendas(List<Venda> vendas) {
-        this.vendas = vendas;
-    }
-    
-    public void calcularNumeroCompras(ClienteRepository clienteRepository) {
-        Long numeroCompras = clienteRepository.countCompras(this);
-        this.setNumero_compras(numeroCompras);
-    }
 }
 

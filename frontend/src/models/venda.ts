@@ -1,7 +1,7 @@
 export type Venda = {
     id: number;
     date: string;
-    vendedorId: number;
-    clientId: number;  
+    vendedor: number;
+    cliente: number;  
     valor: number;
 }

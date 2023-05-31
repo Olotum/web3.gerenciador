@@ -71,12 +71,12 @@ function VendasCard() {
                                     <td>R$ {venda.valor.toFixed(2)}</td>
                                     <td>
                                         <div className="wsbtn-container">
-                                            <WSButton vendaId={venda.id} />
+                                            <WSButton Id={venda.id} />
                                         </div>
                                     </td>
                                     <td>
                                         <div className="edbtn-container">
-                                            <WSButton vendaId={venda.id}/>
+                                            <WSButton Id={venda.id}/>
                                         </div>
                                     </td>
                                 </tr>

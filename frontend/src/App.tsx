@@ -1,6 +1,5 @@
 import Header from "./components/Header";
-import PasswordInput from "./components/Login";
-import VendasCard from "./components/VendasCard";
+import FilialCard from "./components/FilialCard";
 
 import './index.css'
 
@@ -19,7 +18,7 @@ function App() {
               <button type="button">Filiais</button>
               <button type="button">+</button>
 
-              <VendasCard />
+              <FilialCard />
             </div>
 
           </div>

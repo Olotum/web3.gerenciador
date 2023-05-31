@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.web3.gerenciador.entities.Venda;
-import com.web3.gerenciador.services.VendaService;
+import com.web3.gerenciador.entities.Filial;
+import com.web3.gerenciador.services.FilialService;
 
 @RestController
-@RequestMapping(value = "/vendas")
-public class VendaController {
+@RequestMapping(value = "/filial")
+public class FilialController {
 
 	@Autowired
-	private VendaService service;
+	private FilialService service;
 	
 	@GetMapping
-	public Page<Venda> findVendas(
-			@RequestParam(value="minDate", defaultValue = "") String minDate, 
-			@RequestParam(value="maxDate", defaultValue = "") String maxDate, 
+	public Page<Filial> findFilial(
+			@RequestParam(value="minVendido", defaultValue = "0") Double minVendido, 
+			@RequestParam(value="maxVendido", defaultValue = "20000") Double maxVendido, 
 			Pageable pageable) {
-		return service.findVendas(minDate, maxDate, pageable);
+		return service.findFilial(minVendido, maxVendido, pageable);
 	}
 }
 

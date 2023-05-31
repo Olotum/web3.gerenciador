@@ -1,21 +1,19 @@
-import axios from "axios";
+
 import icon from "../../assets/img/notification-icon.svg";
-import { BASE_URL } from "../../util/request";
 import './styles.css';
 
 
-type Props = { vendaId: number }
+type Props = { Telefone: number }
 
-function handleClick(vendaId :number) {
-    axios(`${BASE_URL}/vendas`)
-    .then(response => {
-        console.log("sucesso" + vendaId);
-    })
-} 
+function handleClick(telefone :number) {
+    const ws = "https://wa.me/";
+    window.open(ws + telefone);
+    }
 
-function WSButton({vendaId} : Props) {
+
+function WSButton({Telefone} : Props) {
     return (
-        <div className="ws-btn" onClick={() => {handleClick(vendaId)}}>
+        <div className="ws-btn" onClick={() => {handleClick(Telefone)}}>
             <img src={icon} alt="Notificar"/>
         </div>
     )
